@@ -18,10 +18,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var initState = {
   list: [],
-  page: 0,
-  tab: 'share',
-  limit: 20,
-  mdrender: true
+  page: 1,
+  tab: 'ask',
+  limit: 20
 };
 
 exports.default = function () {
@@ -35,7 +34,18 @@ exports.default = function () {
       });
     case types.GET_TOPICS_LIST:
       return (0, _extends3.default)({}, state, {
-        list: action.page === 1 ? action.list : state.list.concat(action.list)
+        list: action.list
+      });
+    case types.CHANGE_TOPICS_LIST_TAB:
+      return (0, _extends3.default)({}, state, {
+        tab: action.tab
+      });
+    case types.RESET_TOPICS_LIST:
+      return (0, _extends3.default)({}, state, {
+        list: [],
+        page: 1,
+        tab: 'ask',
+        limit: 20
       });
     default:
       return state;

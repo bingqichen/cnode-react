@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -6,51 +7,120 @@ import * as topicsListActions from '../../actions/topicsList';
 
 import TopicsItem from '~/topics-item';
 import Button from '~/button';
+import ButtonGroup from '~/button/ButtonGroup';
 
 import './style.less';
 
 class TopicsList extends Component {
   constructor(props) {
     super(props);
-    this.handleGetTopicsList = this.handleGetTopicsList.bind(this);
+    this.handleChangeTab = this.handleChangeTab.bind(this);
+    this.handleChangePage = this.handleChangePage.bind(this);
   }
 
   componentDidMount() {
-    const { list } = this.props.topicsList;
+    const { actions, topicsList } = this.props;
+    const { list, page, tab, limit } = topicsList;
     if (!list.length) {
-      this.handleGetTopicsList();
+      const params = {
+        page: page + 1,
+        tab,
+        limit
+      };
+      actions.getTopicsList(params);
     }
   }
 
-  handleGetTopicsList() {
+  componentWillReceiveProps(nextProps) {
+    const nextTopicsList = nextProps.topicsList;
+    const prevTopicsList = this.props.topicsList;
+    if (nextTopicsList.page !== prevTopicsList.page || nextTopicsList.tab !== prevTopicsList.tab) {
+      this.context.router.push(`/topicslist?page=${nextTopicsList.page}&tab=${nextTopicsList.tab}`);      
+    }
+  }
+
+  componentWillUnmount() {
+    const { actions } = this.props;
+    actions.resetTopicsList();
+  }
+
+  handleChangeTab(tab) {
     const { actions, topicsList } = this.props;
-    const { page, tab, limit, mdrender } = topicsList;
+    const { limit } = topicsList;
     const params = {
-      page: page + 1,
+      page: 1,
       tab,
-      limit,
-      mdrender
+      limit
     };
+    actions.changeTopicsListTab(tab);
     actions.getTopicsList(params);
   }
+
+  handleChangePage(pager) {
+    const { actions, topicsList } = this.props;
+    const { page, tab, limit } = topicsList;
+    const newPage = pager ? Number(page) + 1 : Number(page) - 1
+    const params = {
+      page: newPage,
+      tab,
+      limit
+    };
+    actions.changeTopicsListPage(newPage);
+    actions.getTopicsList(params);
+  }
+
   render() {
-    const { list } = this.props.topicsList;
+    const { list, page, tab } = this.props.topicsList;
     return (
       <div className="topicslist-wrap">
+        <div className="tab">
+          <ButtonGroup>
+            <Button
+              disabled={tab === 'ask' ? 'disabled' : ''}
+              onClick={() => this.handleChangeTab('ask')}
+            >问答</Button>
+            <Button
+              disabled={tab === 'share' ? 'disabled' : ''}
+              onClick={() => this.handleChangeTab('share')}
+            >分享</Button>
+            <Button
+              disabled={tab === 'job' ? 'disabled' : ''}
+              onClick={() => this.handleChangeTab('job')}
+            >招聘</Button>
+            <Button
+              disabled={tab === 'good' ? 'disabled' : ''}
+              onClick={() => this.handleChangeTab('good')}
+            >精华</Button>
+          </ButtonGroup>
+        </div>  
         <div className="topics-list">
           {
             list.map((item) => (
-              <TopicsItem key={item.id} topic={item} />
+              <Link to={`/topicdetail?id=${item.id}`} key={item.id}>
+                <TopicsItem topic={item} />
+              </Link>
             ))
           }
         </div>
-        <div className="load-more">
-          <Button onClick={this.handleGetTopicsList}>加载更多</Button>
+        <div className="pager">
+          <ButtonGroup>
+            <Button
+              disabled={page < 2}  
+              onClick={() => this.handleChangePage(false)}
+            >上一页</Button>
+            <Button
+              onClick={() => this.handleChangePage(true)}
+            >下一页</Button>
+          </ButtonGroup>  
         </div>
       </div>
     );
   }
 }
+
+TopicsList.contextTypes = {
+  router: PropTypes.object.isRequired
+};
 
 const mapStateToProps = (state) => {
   return {

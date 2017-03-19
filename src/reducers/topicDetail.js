@@ -11,6 +11,11 @@ export default (state = initState, action) => {
         ...state,
         detail: action.detail
       };
+    case types.RESET_TOPIC_DETAIL:
+      return {
+        ...state,
+        detail: {}
+      };
     default:
       return state;
   }

@@ -2,10 +2,9 @@ import * as types from '../constans';
 
 const initState = {
   list: [],
-  page: 0,
-  tab: 'share',
-  limit: 20,
-  mdrender: true
+  page: 1,
+  tab: 'ask',
+  limit: 20
 };
 
 export default (state = initState, action) => {
@@ -18,7 +17,20 @@ export default (state = initState, action) => {
     case types.GET_TOPICS_LIST:
       return {
         ...state,
-        list: action.page === 1 ? action.list : state.list.concat(action.list)
+        list: action.list
+      };
+    case types.CHANGE_TOPICS_LIST_TAB:
+      return {
+        ...state,
+        tab: action.tab
+      };
+    case types.RESET_TOPICS_LIST:
+      return {
+        ...state,
+        list: [],
+        page: 1,
+        tab: 'ask',
+        limit: 20
       };
     default:
       return state;

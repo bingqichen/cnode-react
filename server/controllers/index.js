@@ -10,10 +10,12 @@ module.exports = {
   },
 
   topicslist: async (ctx, next) => {
+    const page = ctx.query.page || 1;
+    const tab = ctx.query.tab || 'ask';
     const response = await axios.get('/topics', {
       params: {
-        page: 1,
-        tab: 'share',
+        page,
+        tab,
         limit: 20,
         mdrender: true
       }
@@ -26,14 +28,32 @@ module.exports = {
         app: {},
         topicsList: {
           list: response,
-          page: 0,
-          tab: 'share',
+          page,
+          tab,
           limit: 20,
           mdrender: true
         }
       }
     }
     
+    next();
+  },
+
+  topicdetail: async (ctx, next) => {
+    const id = ctx.query.id;
+    const response = await axios.get(`/topic/${id}`)
+
+    ctx.body = {
+      view: 'index',
+      title: '详情页',
+      store: {
+        app: {},
+        topicDetail: {
+          detail: response
+        }
+      }
+    }
+
     next();
   }
 };

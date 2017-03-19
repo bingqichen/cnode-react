@@ -8,6 +8,10 @@ var _extends2 = require('babel-runtime/helpers/extends');
 
 var _extends3 = _interopRequireDefault(_extends2);
 
+var _stringify = require('babel-runtime/core-js/json/stringify');
+
+var _stringify2 = _interopRequireDefault(_stringify);
+
 var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -55,11 +59,32 @@ var TopicDetail = function (_Component) {
   }
 
   (0, _createClass3.default)(TopicDetail, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _props = this.props,
+          actions = _props.actions,
+          topicDetail = _props.topicDetail,
+          location = _props.location;
+      var id = location.query.id;
+
+      if ((0, _stringify2.default)(topicDetail.detail) === '{}') {
+        actions.getTopicDetail(id);
+      }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      var actions = this.props.actions;
+
+      actions.resetTopicDetail();
+    }
+  }, {
     key: 'render',
     value: function render() {
       var topicDetail = this.props.topicDetail;
+      var detail = topicDetail.detail;
 
-      return _react2.default.createElement('div', { className: 'topicslist-wrap' });
+      return _react2.default.createElement('div', { className: 'topicdetail-wrap' });
     }
   }]);
   return TopicDetail;

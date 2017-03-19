@@ -5,5 +5,6 @@ const router = new Router();
 
 router.get('/', ctrl.index);
 router.get('/topicslist', ctrl.topicslist);
+router.get('/topicdetail', ctrl.topicdetail);
 
 module.exports = router;

@@ -29,6 +29,10 @@ exports.default = function () {
       return (0, _extends3.default)({}, state, {
         detail: action.detail
       });
+    case types.RESET_TOPIC_DETAIL:
+      return (0, _extends3.default)({}, state, {
+        detail: {}
+      });
     default:
       return state;
   }

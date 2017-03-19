@@ -19,6 +19,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 exports.default = function (props) {
   var className = props.className,
       children = props.children,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === undefined ? false : _props$disabled,
       _props$onClick = props.onClick,
       onClick = _props$onClick === undefined ? function () {} : _props$onClick;
 
@@ -29,6 +31,7 @@ exports.default = function (props) {
     'button',
     {
       className: cls,
+      disabled: disabled,
       onClick: onClick
     },
     children
