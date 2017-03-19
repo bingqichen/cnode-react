@@ -4,7 +4,7 @@ const initState = {
   list: [],
   page: 1,
   tab: 'ask',
-  limit: 20
+  limit: 40
 };
 
 export default (state = initState, action) => {

@@ -16,7 +16,7 @@ module.exports = {
       params: {
         page,
         tab,
-        limit: 20,
+        limit: 40,
         mdrender: true
       }
     })
@@ -30,7 +30,7 @@ module.exports = {
           list: response,
           page,
           tab,
-          limit: 20,
+          limit: 40,
           mdrender: true
         }
       }
