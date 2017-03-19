@@ -84,7 +84,19 @@ var TopicDetail = function (_Component) {
       var topicDetail = this.props.topicDetail;
       var detail = topicDetail.detail;
 
-      return _react2.default.createElement('div', { className: 'topicdetail-wrap' });
+      return _react2.default.createElement(
+        'div',
+        { className: 'topicdetail-wrap' },
+        _react2.default.createElement(
+          'div',
+          { className: 'panel' },
+          _react2.default.createElement(
+            'div',
+            { className: 'inner topic' },
+            _react2.default.createElement('div', { className: 'topic_content', dangerouslySetInnerHTML: { __html: detail.content } })
+          )
+        )
+      );
     }
   }]);
   return TopicDetail;

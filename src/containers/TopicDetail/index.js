@@ -28,7 +28,11 @@ class TopicDetail extends Component {
     const { detail } = topicDetail;
     return (
       <div className="topicdetail-wrap">
-
+        <div className="panel">
+          <div className="inner topic">
+            <div className="topic_content" dangerouslySetInnerHTML={{ __html: detail.content }} />
+          </div> 
+        </div>   
       </div>
     );
   }
