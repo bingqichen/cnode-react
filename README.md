@@ -1,7 +1,7 @@
 # cnode app with React && SSR
 
 ## How to run
-- First, you should install installed pm2
+- First, you should installed pm2
 
 
 - Use npm
