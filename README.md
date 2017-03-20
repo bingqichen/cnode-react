@@ -1,7 +1,7 @@
 # cnode app with react && ssr
 
 ## how to run
-- first, you must be install pm2
+- first, you must be installed pm2
 - use npm
 `npm install` && `npm run server` && `npm run dev`
 
