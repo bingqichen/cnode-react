@@ -1,12 +1,13 @@
 const axios = require('../config').axios;
 
 module.exports = {
-  index: (ctx, next) => {
-  ctx.body = {
-    view: 'index',
-    title: 'hello'
-  };
-    return next();
+  index: async (ctx, next) => {
+    ctx.body = {
+      view: 'index',
+      title: 'hello'
+    };
+
+    await next();
   },
 
   topicslist: async (ctx, next) => {
@@ -35,8 +36,8 @@ module.exports = {
         }
       }
     }
-    
-    next();
+
+    await next();
   },
 
   topicdetail: async (ctx, next) => {
@@ -54,6 +55,6 @@ module.exports = {
       }
     }
 
-    next();
+    await next();
   }
 };
