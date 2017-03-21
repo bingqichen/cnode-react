@@ -1,22 +1,6 @@
 const gulp = require('gulp');
 const babel = require('gulp-babel');
-const through2 = require('through2');
-
-const removeLess = through2.obj((file, enc, cb) => {
-  if (file.isNull()) {
-    cb(null, file);
-  }
-  try {
-    if (file.isBuffer()) {
-      const con = file.contents.toString();
-      let con2 = con.replace(/require.*?.less.*/g, '');
-      file.contents = new Buffer(con2);
-    }
-  } catch (e) {
-    console.log('ee:', e);
-  }
-  cb(null, file);
-});
+const replace = require('gulp-replace');
 
 // transform ES6 & JSX
 gulp.task('default', () => (
@@ -39,6 +23,6 @@ gulp.task('default', () => (
         ]
       ]
     }))
-    .pipe(removeLess)
+    .pipe(replace(/require.*?.less.*/g, ''))
     .pipe(gulp.dest('server/front'))
 ));
