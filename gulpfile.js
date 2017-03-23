@@ -23,6 +23,6 @@ gulp.task('default', () => (
         ]
       ]
     }))
-    .pipe(replace(/require.*?.less.*/g, ''))
+    .pipe(replace(/(.*?)require\(.+?\.less.*?\);?(.*?)/gm, '$1$2'))
     .pipe(gulp.dest('server/front'))
 ));
