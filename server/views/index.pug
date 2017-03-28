@@ -5,12 +5,12 @@ head
   meta(name="viewport", content="width=device-width, initial-scale=1.0")
   meta(http-equiv="X-UA-Compatible", content="ie=edge")
   title #{title}
+  link(href="//o4j806krb.qnssl.com/public/stylesheets/index.min.9d1ebdbb.min.css", rel="stylesheet")
   link(href="/app.dev.css", rel="stylesheet")
-  link(href="https://o4j806krb.qnssl.com/public/stylesheets/index.min.9d1ebdbb.min.css", rel="stylesheet")
 
 body
   #root !{bodyHtml || ''}
   script.
     window.__INITIAL_STATE__ = !{JSON.stringify(__INITIAL_STATE__ || {})}
-  
+
   script(src="/app.dev.js")

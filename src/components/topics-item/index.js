@@ -1,9 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
 
-import Avatar from '~/avatar';
+import { formatTime } from '@/util';
 
-import { formatTime } from '../../util';
+import Avatar from '~/avatar';
 
 import './style.less';
 

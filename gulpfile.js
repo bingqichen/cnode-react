@@ -18,6 +18,10 @@ gulp.task('default', () => (
             {
               rootPathPrefix: '~',
               rootPathSuffix: 'src/components'
+            },
+            {
+              rootPathPrefix: '@',
+              rootPathSuffix: 'src'
             }
           ]
         ]

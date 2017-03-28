@@ -3,7 +3,8 @@ import { Link } from 'react-router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import * as topicsListActions from '../../actions/topicsList';
+import * as topicsListActions from '@/actions/topicsList';
+import { tabTypes } from '@/config';
 
 import TopicsItem from '~/topics-item';
 import Button from '~/button';
@@ -35,7 +36,7 @@ class TopicsList extends Component {
     const nextTopicsList = nextProps.topicsList;
     const prevTopicsList = this.props.topicsList;
     if (nextTopicsList.page !== prevTopicsList.page || nextTopicsList.tab !== prevTopicsList.tab) {
-      this.context.router.push(`/topicslist?page=${nextTopicsList.page}&tab=${nextTopicsList.tab}`);      
+      this.context.router.push(`/topicslist?page=${nextTopicsList.page}&tab=${nextTopicsList.tab}`);
     }
   }
 
@@ -76,23 +77,27 @@ class TopicsList extends Component {
         <div className="tab">
           <ButtonGroup>
             <Button
+              disabled={tab === 'all' ? 'disabled' : ''}
+              onClick={() => this.handleChangeTab('all')}
+            >{tabTypes.all}</Button>
+            <Button
               disabled={tab === 'ask' ? 'disabled' : ''}
               onClick={() => this.handleChangeTab('ask')}
-            >问答</Button>
+            >{tabTypes.ask}</Button>
             <Button
               disabled={tab === 'share' ? 'disabled' : ''}
               onClick={() => this.handleChangeTab('share')}
-            >分享</Button>
+            >{tabTypes.share}</Button>
             <Button
               disabled={tab === 'job' ? 'disabled' : ''}
               onClick={() => this.handleChangeTab('job')}
-            >招聘</Button>
+            >{tabTypes.job}</Button>
             <Button
               disabled={tab === 'good' ? 'disabled' : ''}
               onClick={() => this.handleChangeTab('good')}
-            >精华</Button>
+            >{tabTypes.good}</Button>
           </ButtonGroup>
-        </div>  
+        </div>
         <div className="topics-list">
           {
             list.map((item) => (
@@ -105,13 +110,13 @@ class TopicsList extends Component {
         <div className="pager">
           <ButtonGroup>
             <Button
-              disabled={page < 2}  
+              disabled={page < 2}
               onClick={() => this.handleChangePage(false)}
             >上一页</Button>
             <Button
               onClick={() => this.handleChangePage(true)}
             >下一页</Button>
-          </ButtonGroup>  
+          </ButtonGroup>
         </div>
       </div>
     );

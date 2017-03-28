@@ -12,7 +12,7 @@ module.exports = {
 
   topicslist: async (ctx, next) => {
     const page = ctx.query.page || 1;
-    const tab = ctx.query.tab || 'ask';
+    const tab = ctx.query.tab || 'all';
     const response = await axios.get('/topics', {
       params: {
         page,

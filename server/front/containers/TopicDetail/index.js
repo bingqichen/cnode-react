@@ -44,6 +44,14 @@ var _topicDetail = require('../../actions/topicDetail');
 
 var topicDetailActions = _interopRequireWildcard(_topicDetail);
 
+var _util = require('../../util');
+
+var _config = require('../../config');
+
+var _replyItem = require('../../components/reply-item');
+
+var _replyItem2 = _interopRequireDefault(_replyItem);
+
 
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
@@ -89,11 +97,78 @@ var TopicDetail = function (_Component) {
         { className: 'topicdetail-wrap' },
         _react2.default.createElement(
           'div',
-          { className: 'panel' },
+          { id: 'main' },
           _react2.default.createElement(
             'div',
-            { className: 'inner topic' },
-            _react2.default.createElement('div', { className: 'topic_content', dangerouslySetInnerHTML: { __html: detail.content } })
+            { id: 'content' },
+            _react2.default.createElement(
+              'div',
+              { className: 'panel' },
+              _react2.default.createElement(
+                'div',
+                { className: 'header topic_header' },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'topic_full_title' },
+                  detail.top ? _react2.default.createElement(
+                    'span',
+                    { className: 'put_top' },
+                    '\u7F6E\u9876'
+                  ) : null,
+                  detail.title
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'changes' },
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    '\u53D1\u5E03\u4E8E',
+                    (0, _util.formatTime)(detail.create_at)
+                  ),
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    '\u4F5C\u8005',
+                    detail.loginname
+                  ),
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    detail.visit_count,
+                    '\u6B21\u6D4F\u89C8'
+                  ),
+                  _react2.default.createElement(
+                    'span',
+                    null,
+                    '\u6765\u81EA',
+                    _config.tabTypes[detail.tab]
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'inner topic' },
+                _react2.default.createElement('div', { className: 'topic_content', dangerouslySetInnerHTML: { __html: detail.content } })
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'panel' },
+              _react2.default.createElement(
+                'div',
+                { className: 'header' },
+                _react2.default.createElement(
+                  'span',
+                  { className: 'col_fade' },
+                  detail.reply_count,
+                  '\u56DE\u590D'
+                )
+              ),
+              detail.replies.map(function (item) {
+                return _react2.default.createElement(_replyItem2.default, { key: item.id, replyItem: item });
+              })
+            )
           )
         )
       );

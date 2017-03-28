@@ -19,7 +19,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var initState = {
   list: [],
   page: 1,
-  tab: 'ask',
+  tab: 'all',
   limit: 40
 };
 

@@ -12,11 +12,11 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _util = require('../../util');
+
 var _avatar = require('../avatar');
 
 var _avatar2 = _interopRequireDefault(_avatar);
-
-var _util = require('../../util');
 
 
 

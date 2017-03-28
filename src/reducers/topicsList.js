@@ -3,7 +3,7 @@ import * as types from '../constans';
 const initState = {
   list: [],
   page: 1,
-  tab: 'ask',
+  tab: 'all',
   limit: 40
 };
 

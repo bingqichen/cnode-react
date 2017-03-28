@@ -42,6 +42,8 @@ var _topicsList = require('../../actions/topicsList');
 
 var topicsListActions = _interopRequireWildcard(_topicsList);
 
+var _config = require('../../config');
+
 var _topicsItem = require('../../components/topics-item');
 
 var _topicsItem2 = _interopRequireDefault(_topicsItem);
@@ -166,12 +168,22 @@ var TopicsList = function (_Component) {
             _react2.default.createElement(
               _button2.default,
               {
+                disabled: tab === 'all' ? 'disabled' : '',
+                onClick: function onClick() {
+                  return _this2.handleChangeTab('all');
+                }
+              },
+              _config.tabTypes.all
+            ),
+            _react2.default.createElement(
+              _button2.default,
+              {
                 disabled: tab === 'ask' ? 'disabled' : '',
                 onClick: function onClick() {
                   return _this2.handleChangeTab('ask');
                 }
               },
-              '\u95EE\u7B54'
+              _config.tabTypes.ask
             ),
             _react2.default.createElement(
               _button2.default,
@@ -181,7 +193,7 @@ var TopicsList = function (_Component) {
                   return _this2.handleChangeTab('share');
                 }
               },
-              '\u5206\u4EAB'
+              _config.tabTypes.share
             ),
             _react2.default.createElement(
               _button2.default,
@@ -191,7 +203,7 @@ var TopicsList = function (_Component) {
                   return _this2.handleChangeTab('job');
                 }
               },
-              '\u62DB\u8058'
+              _config.tabTypes.job
             ),
             _react2.default.createElement(
               _button2.default,
@@ -201,7 +213,7 @@ var TopicsList = function (_Component) {
                   return _this2.handleChangeTab('good');
                 }
               },
-              '\u7CBE\u534E'
+              _config.tabTypes.good
             )
           )
         ),
