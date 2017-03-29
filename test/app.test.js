@@ -12,7 +12,7 @@ import configureStore from '../server/front/store';
 
 const expect = chai.expect;
 
-describe('时间格式化函数测试', () => {
+describe.only('时间格式化函数测试', () => {
   it('同一时间', () => {
     expect(formatTime(new Date())).to.be.equal('几秒前');
   });
