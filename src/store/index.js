@@ -10,7 +10,7 @@ if (process.env.NODE_ENV === 'production') {
     applyMiddleware(thunk)
   )(createStore);
 } else {
-  finialStore = compose(
+  finialStore = (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose)(
     applyMiddleware(thunk, createLogger())
   )(createStore);
 }

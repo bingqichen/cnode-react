@@ -11,9 +11,6 @@ import ReplyItem from '~/reply-item';
 import './style.less';
 
 class TopicDetail extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     const { actions, topicDetail, location } = this.props;
     const { id } = location.query;
@@ -61,9 +58,10 @@ class TopicDetail extends Component {
                 <span className="col_fade">{detail.reply_count}回复</span>
               </div>
               {
+                detail.replies && detail.replies.length ?
                 detail.replies.map(item => (
                   <ReplyItem key={item.id} replyItem={item} />
-                ))
+                )) : null
               }
             </div>
 
@@ -74,16 +72,12 @@ class TopicDetail extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    topicDetail: state.topicDetail
-  };
-};
+const mapStateToProps = state => ({
+  topicDetail: state.topicDetail
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    actions: bindActionCreators({ ...topicDetailActions }, dispatch)
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({ ...topicDetailActions }, dispatch)
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopicDetail);

@@ -2747,7 +2747,7 @@ glob2base@^0.0.12:
   dependencies:
     find-index "^0.1.1"
 
-glob@7.0.5:
+glob@7.0.5, glob@^7.0.0, glob@^7.0.3, glob@^7.0.5:
   version "7.0.5"
   resolved "http://registry.npm.taobao.org/glob/download/glob-7.0.5.tgz#b4202a69099bbb4d292a7c1b95b6682b67ebdc95"
   dependencies:
@@ -2766,17 +2766,6 @@ glob@^4.3.1:
     inherits "2"
     minimatch "^2.0.1"
     once "^1.3.0"
-
-glob@^7.0.0, glob@^7.0.3, glob@^7.0.5:
-  version "7.1.1"
-  resolved "http://registry.npm.taobao.org/glob/download/glob-7.1.1.tgz#805211df04faaf1c63a3600306cdf5ade50b2ec8"
-  dependencies:
-    fs.realpath "^1.0.0"
-    inflight "^1.0.4"
-    inherits "2"
-    minimatch "^3.0.2"
-    once "^1.3.0"
-    path-is-absolute "^1.0.0"
 
 glob@~3.1.21:
   version "3.1.21"
@@ -3220,8 +3209,8 @@ inquirer@^0.12.0:
     through "^2.3.6"
 
 interpret@^1.0.0:
-  version "1.0.1"
-  resolved "http://registry.npm.taobao.org/interpret/download/interpret-1.0.1.tgz#d579fb7f693b858004947af39fa0db49f795602c"
+  version "1.0.2"
+  resolved "http://registry.npm.taobao.org/interpret/download/interpret-1.0.2.tgz#f4f623f0bb7122f15f5717c8e254b8161b5c5b2d"
 
 invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.1:
   version "2.2.2"
@@ -5989,7 +5978,7 @@ style-loader@^0.15.0:
   dependencies:
     loader-utils "^1.0.2"
 
-supports-color@3.1.2:
+supports-color@3.1.2, supports-color@^3.1.0, supports-color@^3.1.1:
   version "3.1.2"
   resolved "http://registry.npm.taobao.org/supports-color/download/supports-color-3.1.2.tgz#72a262894d9d408b956ca05ff37b2ed8a6e2a2d5"
   dependencies:
@@ -5999,7 +5988,7 @@ supports-color@^2.0.0:
   version "2.0.0"
   resolved "http://registry.npm.taobao.org/supports-color/download/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
 
-supports-color@^3.1.0, supports-color@^3.1.1, supports-color@^3.2.3:
+supports-color@^3.2.3:
   version "3.2.3"
   resolved "http://registry.npm.taobao.org/supports-color/download/supports-color-3.2.3.tgz#65ac0504b3954171d8a64946b2ae3cbb8a5f54f6"
   dependencies:

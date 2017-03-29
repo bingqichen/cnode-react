@@ -14,7 +14,7 @@
     "react-hot-loader/babel",
     "transform-runtime",
     [
-        "babel-plugin-root-import",
+      "babel-plugin-root-import",
       [
         {
           "rootPathPrefix": "~",
