@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import * as topicDetailActions from '@/actions/topicDetail';
-import { formatTime } from '@/util';
+import { formatTime } from '@/utils';
 import { tabTypes } from '@/config';
 
 import ReplyItem from '~/reply-item';
