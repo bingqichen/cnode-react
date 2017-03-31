@@ -12,7 +12,7 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _util = require('../../util');
+var _utils = require('../../utils');
 
 var _avatar = require('../avatar');
 
@@ -58,7 +58,7 @@ exports.default = function (props) {
       _react2.default.createElement(
         'div',
         { className: 'last-reply' },
-        (0, _util.formatTime)(topic.last_reply_at)
+        (0, _utils.formatTime)(topic.last_reply_at)
       ),
       _react2.default.createElement(
         'div',

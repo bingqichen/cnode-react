@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { formatTime } from '@/util';
+import { formatTime } from '@/utils';
 
 import './style.less';
 

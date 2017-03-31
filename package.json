@@ -4,7 +4,7 @@
   "description": "cnode社区react版",
   "main": "src/app.js",
   "scripts": {
-    "server": "pm2 start app.js --watch",
+    "server": "export NODE_SERVER=true && pm2 start app.js --watch",
     "dev": "NODE_ENV='development' webpack-dev-server --config webpack.dev.config.js",
     "build": "NODE_ENV='production' webpack --progress --display-error-details --colors --profile --config webpack.build.config.js",
     "test": "NODE_ENV='production' mocha --compilers js:babel-core/register --require ./test/setup.js"

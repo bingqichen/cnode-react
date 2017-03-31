@@ -8,7 +8,7 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _util = require('../../util');
+var _utils = require('../../utils');
 
 
 
@@ -40,7 +40,7 @@ exports.default = function (props) {
         _react2.default.createElement(
           'a',
           { className: 'reply_time' },
-          (0, _util.formatTime)(replyItem.create_at)
+          (0, _utils.formatTime)(replyItem.create_at)
         )
       )
     ),

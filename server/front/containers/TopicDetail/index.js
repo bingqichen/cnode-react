@@ -44,7 +44,7 @@ var _topicDetail = require('../../actions/topicDetail');
 
 var topicDetailActions = _interopRequireWildcard(_topicDetail);
 
-var _util = require('../../util');
+var _utils = require('../../utils');
 
 var _config = require('../../config');
 
@@ -61,9 +61,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var TopicDetail = function (_Component) {
   (0, _inherits3.default)(TopicDetail, _Component);
 
-  function TopicDetail(props) {
+  function TopicDetail() {
     (0, _classCallCheck3.default)(this, TopicDetail);
-    return (0, _possibleConstructorReturn3.default)(this, (TopicDetail.__proto__ || (0, _getPrototypeOf2.default)(TopicDetail)).call(this, props));
+    return (0, _possibleConstructorReturn3.default)(this, (TopicDetail.__proto__ || (0, _getPrototypeOf2.default)(TopicDetail)).apply(this, arguments));
   }
 
   (0, _createClass3.default)(TopicDetail, [{
@@ -124,7 +124,7 @@ var TopicDetail = function (_Component) {
                     'span',
                     null,
                     '\u53D1\u5E03\u4E8E',
-                    (0, _util.formatTime)(detail.create_at)
+                    (0, _utils.formatTime)(detail.create_at)
                   ),
                   _react2.default.createElement(
                     'span',
@@ -165,9 +165,9 @@ var TopicDetail = function (_Component) {
                   '\u56DE\u590D'
                 )
               ),
-              detail.replies.map(function (item) {
+              detail.replies && detail.replies.length ? detail.replies.map(function (item) {
                 return _react2.default.createElement(_replyItem2.default, { key: item.id, replyItem: item });
-              })
+              }) : null
             )
           )
         )

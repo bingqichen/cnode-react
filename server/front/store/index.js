@@ -25,8 +25,8 @@ var _reducers2 = _interopRequireDefault(_reducers);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var finialStore = void 0;
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production' || process.env.NODE_SERVER) {
   finialStore = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxThunk2.default))(_redux.createStore);
 } else {
-  finialStore = (0, _redux.compose)((0, _redux.applyMiddleware)(_reduxThunk2.default, (0, _reduxLogger2.default)()))(_redux.createStore);
+  finialStore = (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || _redux.compose)((0, _redux.applyMiddleware)(_reduxThunk2.default, (0, _reduxLogger2.default)()))(_redux.createStore);
 }
