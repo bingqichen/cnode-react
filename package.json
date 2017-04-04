@@ -29,6 +29,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "classnames": "^2.2.5",
+    "dva": "^1.2.1",
     "koa": "^2.2.0",
     "koa-pug": "^3.0.0-2",
     "koa-router": "next",
