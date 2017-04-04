@@ -24,7 +24,8 @@ render(
 // import router from './router';
 
 // const app = dva({
-//   history: browserHistory
+//   history: browserHistory,
+//   initialState: window.__INITIAL_STATE__
 // });
 
 // app.model(topicsListModel);
