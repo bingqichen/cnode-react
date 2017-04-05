@@ -1,4 +1,4 @@
-import { axios } from '../config';
+import { getDetailData } from '../services/topicDetail';
 
 export default {
   namespace: 'topicDetail',
@@ -18,13 +18,13 @@ export default {
 
   effects: {
     * getDetail(action, { call, put }) {
-      const detail = yield axios.get(`/topic/${action.id}`)
-        .then(res => res.data);
+      const detail = yield call(getDetailData, { id: action.id });
       yield put({ type: 'getDetail', detail });
     },
     * reset(action, { put }) {
       yield put({ type: 'reset' });
     }
   },
+
   subscriptions: {}
 };

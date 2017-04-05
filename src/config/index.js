@@ -1,7 +1,4 @@
-import axios from 'axios';
-
-axios.defaults.baseURL = 'https://cnodejs.org/api/v1';
-axios.interceptors.response.use(res => res.data);
+const requestBaseURL = 'https://cnodejs.org/api/v1';
 
 const tabTypes = {
   all: '全部',
@@ -12,6 +9,6 @@ const tabTypes = {
 };
 
 export {
-  axios,
+  requestBaseURL,
   tabTypes
 };

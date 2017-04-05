@@ -12,7 +12,7 @@ var _extends2 = require('babel-runtime/helpers/extends');
 
 var _extends3 = _interopRequireDefault(_extends2);
 
-var _config = require('../config');
+var _topicsList = require('../services/topicsList');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -56,9 +56,7 @@ exports.default = {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return _config.axios.get('/topics', { params: action.params }).then(function (res) {
-                return res.data;
-              });
+              return call(_topicsList.getListData, { params: action.params });
 
             case 2:
               list = _context.sent;

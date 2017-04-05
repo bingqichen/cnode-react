@@ -3,7 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.formatTime = undefined;
+exports.formatTime = exports.axios = undefined;
+
+var _axios = require('./axios.js');
+
+var _axios2 = _interopRequireDefault(_axios);
 
 var _moment = require('./moment.js');
 
@@ -16,4 +20,5 @@ var formatTime = function formatTime(time) {
   return momentTime;
 };
 
+exports.axios = _axios2.default;
 exports.formatTime = formatTime;

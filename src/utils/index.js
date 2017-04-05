@@ -1,3 +1,4 @@
+import axios from './axios.js';
 import moment from './moment.js';
 
 const formatTime = (time) => {
@@ -6,5 +7,6 @@ const formatTime = (time) => {
 };
 
 export {
+  axios,
   formatTime
 };

@@ -1,4 +1,4 @@
-import { axios } from '../config';
+import { getListData } from '../services/topicsList';
 
 export default {
   namespace: 'topicsList',
@@ -33,8 +33,7 @@ export default {
 
   effects: {
     * getList(action, { call, put }) {
-      const list = yield axios.get('/topics', { params: action.params })
-        .then(res => res.data);
+      const list = yield call(getListData, { params: action.params });
       yield put({ type: 'getList', list });
     },
     * changePage(action, { put }) {
