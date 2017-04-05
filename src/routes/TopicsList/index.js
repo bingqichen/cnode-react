@@ -98,11 +98,12 @@ class TopicsList extends Component {
         </div>
         <div className="topics-list">
           {
-            list.map(item => (
-              <Link to={`/topicdetail?id=${item.id}`} key={item.id}>
-                <TopicsItem topic={item} />
-              </Link>
-            ))
+            list && list.length ?
+              list.map(item => (
+                <Link to={`/topicdetail?id=${item.id}`} key={item.id}>
+                  <TopicsItem topic={item} />
+                </Link>
+              )) : null
           }
         </div>
         <div className="pager">

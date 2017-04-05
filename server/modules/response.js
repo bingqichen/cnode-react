@@ -1,9 +1,10 @@
 const React = require('react');
 const renderToString = require('react-dom/server').renderToString;
-const Provider = require('react-redux').Provider;
-const dva = require('dva');
+const dva = require('dva').default;
 const RouterContext = require('dva/router').RouterContext;
 const createMemoryHistory = require('dva/router').createMemoryHistory;
+const topicsListModel = require('../front/models/topicsList').default;
+const topicDetailModel = require('../front/models/topicDetail').default;
 
 module.exports = (app) => {
   app.use(async (ctx, next) => {
@@ -21,11 +22,16 @@ module.exports = (app) => {
         initialState: body.store || {}
       });
 
-      const context = createElement(RouterContext, body.renderProps);
+      app.model(topicsListModel);
+      app.model(topicDetailModel);
+
+      app.router(({ renderProps }) => (
+        createElement(RouterContext, renderProps)
+      ));
 
       body.__INITIAL_STATE__ = body.store || {};
 
-      body.bodyHtml = renderToString(app.start()({ context }));
+      body.bodyHtml = renderToString(app.start()({ renderProps: body.renderProps }));
 
       ctx.render(body.view, body);
     } else if (body.view) {

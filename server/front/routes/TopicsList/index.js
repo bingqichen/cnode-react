@@ -208,13 +208,13 @@ var TopicsList = function (_Component) {
         _react2.default.createElement(
           'div',
           { className: 'topics-list' },
-          list.map(function (item) {
+          list && list.length ? list.map(function (item) {
             return _react2.default.createElement(
               _router.Link,
               { to: '/topicdetail?id=' + item.id, key: item.id },
               _react2.default.createElement(_topicsItem2.default, { topic: item })
             );
-          })
+          }) : null
         ),
         _react2.default.createElement(
           'div',
