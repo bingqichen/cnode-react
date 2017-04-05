@@ -1,4 +1,4 @@
-import { getListData } from '../services/topicsList';
+import { getListData } from '@/services/topicsList';
 
 export default {
   namespace: 'topicsList',

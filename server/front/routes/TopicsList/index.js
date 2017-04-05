@@ -92,13 +92,12 @@ var TopicsList = function (_Component) {
         this.context.router.push('/topicslist?page=' + nextTopicsList.page + '&tab=' + nextTopicsList.tab);
       }
     }
-  }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {
-      var dispatch = this.props.dispatch;
 
-      dispatch({ type: 'topicsList/reset' });
-    }
+    // componentWillUnmount() {
+    //   const { dispatch } = this.props;
+    //   dispatch({ type: 'topicsList/reset' });
+    // }
+
   }, {
     key: 'handleChangeTab',
     value: function handleChangeTab(tab) {

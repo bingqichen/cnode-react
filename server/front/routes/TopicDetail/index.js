@@ -38,6 +38,10 @@ var _utils = require('../../utils');
 
 var _config = require('../../config');
 
+var _button = require('../../components/button');
+
+var _button2 = _interopRequireDefault(_button);
+
 var _replyItem = require('../../components/reply-item');
 
 var _replyItem2 = _interopRequireDefault(_replyItem);
@@ -49,9 +53,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var TopicDetail = function (_Component) {
   (0, _inherits3.default)(TopicDetail, _Component);
 
-  function TopicDetail() {
+  function TopicDetail(props) {
     (0, _classCallCheck3.default)(this, TopicDetail);
-    return (0, _possibleConstructorReturn3.default)(this, (TopicDetail.__proto__ || (0, _getPrototypeOf2.default)(TopicDetail)).apply(this, arguments));
+
+    var _this = (0, _possibleConstructorReturn3.default)(this, (TopicDetail.__proto__ || (0, _getPrototypeOf2.default)(TopicDetail)).call(this, props));
+
+    _this.handleGoBack = _this.handleGoBack.bind(_this);
+    return _this;
   }
 
   (0, _createClass3.default)(TopicDetail, [{
@@ -64,7 +72,7 @@ var TopicDetail = function (_Component) {
       var id = location.query.id;
 
       if ((0, _stringify2.default)(topicDetail.detail) === '{}') {
-        dispatch({ type: 'topicDetail', id: id });
+        dispatch({ type: 'topicDetail/getDetail', id: id });
       }
     }
   }, {
@@ -75,6 +83,11 @@ var TopicDetail = function (_Component) {
       dispatch({ type: 'topicDetail/reset' });
     }
   }, {
+    key: 'handleGoBack',
+    value: function handleGoBack() {
+      this.context.router.goBack();
+    }
+  }, {
     key: 'render',
     value: function render() {
       var topicDetail = this.props.topicDetail;
@@ -83,6 +96,11 @@ var TopicDetail = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: 'topicdetail-wrap' },
+        _react2.default.createElement(
+          _button2.default,
+          { onClick: this.handleGoBack },
+          '\u8FD4\u56DE'
+        ),
         _react2.default.createElement(
           'div',
           { id: 'main' },
@@ -164,6 +182,10 @@ var TopicDetail = function (_Component) {
   }]);
   return TopicDetail;
 }(_react.Component);
+
+TopicDetail.contextTypes = {
+  router: _react.PropTypes.object.isRequired
+};
 
 var mapStateToProps = function mapStateToProps(state) {
   return {

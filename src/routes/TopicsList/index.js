@@ -38,10 +38,10 @@ class TopicsList extends Component {
     }
   }
 
-  componentWillUnmount() {
-    const { dispatch } = this.props;
-    dispatch({ type: 'topicsList/reset' });
-  }
+  // componentWillUnmount() {
+  //   const { dispatch } = this.props;
+  //   dispatch({ type: 'topicsList/reset' });
+  // }
 
   handleChangeTab(tab) {
     const { dispatch, topicsList } = this.props;

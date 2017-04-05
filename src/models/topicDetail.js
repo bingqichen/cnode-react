@@ -1,4 +1,4 @@
-import { getDetailData } from '../services/topicDetail';
+import { getDetailData } from '@/services/topicDetail';
 
 export default {
   namespace: 'topicDetail',

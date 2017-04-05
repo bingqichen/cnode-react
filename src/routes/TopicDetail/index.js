@@ -1,19 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'dva';
 
 import { formatTime } from '@/utils';
 import { tabTypes } from '@/config';
 
+import Button from '~/button';
 import ReplyItem from '~/reply-item';
 
 import './style.less';
 
 class TopicDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.handleGoBack = this.handleGoBack.bind(this);
+  }
   componentDidMount() {
     const { dispatch, topicDetail, location } = this.props;
     const { id } = location.query;
     if (JSON.stringify(topicDetail.detail) === '{}') {
-      dispatch({ type: 'topicDetail', id });
+      dispatch({ type: 'topicDetail/getDetail', id });
     }
   }
 
@@ -22,11 +27,16 @@ class TopicDetail extends Component {
     dispatch({ type: 'topicDetail/reset' });
   }
 
+  handleGoBack() {
+    this.context.router.goBack();
+  }
+
   render() {
     const { topicDetail } = this.props;
     const { detail } = topicDetail;
     return (
       <div className="topicdetail-wrap">
+        <Button onClick={this.handleGoBack}>返回</Button>
         <div id="main">
           <div id="content">
             <div className="panel">
@@ -69,6 +79,10 @@ class TopicDetail extends Component {
     );
   }
 }
+
+TopicDetail.contextTypes = {
+  router: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => ({
   topicDetail: state.topicDetail
