@@ -1,32 +1,31 @@
 const React = require('react');
-const ReactDOMServer = require('react-dom/server');
-
+const renderToString = require('react-dom/server').renderToString;
 const Provider = require('react-redux').Provider;
-const RouterContext = require('react-router').RouterContext;
-const configureStore = require('../front/store').default;
+const dva = require('dva');
+const RouterContext = require('dva/router').RouterContext;
+const createMemoryHistory = require('dva/router').createMemoryHistory;
 
 module.exports = (app) => {
   app.use(async (ctx, next) => {
     await next();
 
     const createElement = React.createElement;
-    const serverRender = ReactDOMServer.renderToString;
 
     const body = ctx.body;
     if (!body || body.pipe) return;
 
     if (body.view && body.renderProps) {
-      const startTime = Date.now();
-      const store = configureStore(body.store);
+
+      const app = dva({
+        history: createMemoryHistory(),
+        initialState: body.store || {}
+      });
 
       const context = createElement(RouterContext, body.renderProps);
-      const provider = createElement(Provider, {
-        store
-      }, context);
 
-      body.__INITIAL_STATE__ = store.getState();
+      body.__INITIAL_STATE__ = body.store || {};
 
-      body.bodyHtml = serverRender(provider);
+      body.bodyHtml = renderToString(app.start()({ context }));
 
       ctx.render(body.view, body);
     } else if (body.view) {

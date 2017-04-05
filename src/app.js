@@ -1,34 +1,16 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
+import dva from 'dva';
+import { browserHistory } from 'dva/router';
 
-import configureStore from './store';
+import topicsListModel from './models/topicsList';
+import topicDetailModel from './models/topicDetail';
+import router from './router';
 
-import routes from './routes.js';
+const app = dva({
+  history: browserHistory,
+  initialState: window.__INITIAL_STATE__
+});
 
-const store = configureStore(window.__INITIAL_STATE__);
-
-render(
-  <Provider store={store}>
-    {routes}
-  </Provider>,
-  document.getElementById('root')
-);
-
-
-// import dva from 'dva';
-// import { browserHistory } from 'dva/router';
-
-// import topicsListModel from './models/topicsList';
-// import topicDetailModel from './models/topicDetail';
-// import router from './router';
-
-// const app = dva({
-//   history: browserHistory,
-//   initialState: window.__INITIAL_STATE__
-// });
-
-// app.model(topicsListModel);
-// app.model(topicDetailModel);
-// app.router(router);
-// app.start('#root');
+app.model(topicsListModel);
+app.model(topicDetailModel);
+app.router(router);
+app.start('#root');

@@ -1,5 +1,5 @@
-const match = require('react-router').match;
-const routes = require('../front/routes').default;
+const match = require('dva/router').match;
+const routes = require('../front/router').routes;
 
 module.exports = (ctx, next) => {
   if (ctx.status !== 200) {
