@@ -30,7 +30,7 @@ exports.default = {
     changePage: function changePage(state, action) {
       return (0, _extends3.default)({}, state, { page: action.page });
     },
-    getList: function getList(state, action) {
+    getListSuccess: function getListSuccess(state, action) {
       return (0, _extends3.default)({}, state, { list: action.list });
     },
     changeTab: function changeTab(state, action) {
@@ -61,7 +61,7 @@ exports.default = {
             case 2:
               list = _context.sent;
               _context.next = 5;
-              return put({ type: 'getList', list: list });
+              return put({ type: 'getListSuccess', list: list });
 
             case 5:
             case 'end':
@@ -69,54 +69,6 @@ exports.default = {
           }
         }
       }, getList, this);
-    }),
-    changePage: _regenerator2.default.mark(function changePage(action, _ref2) {
-      var put = _ref2.put;
-      return _regenerator2.default.wrap(function changePage$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _context2.next = 2;
-              return put({ type: 'changePage', page: action.page });
-
-            case 2:
-            case 'end':
-              return _context2.stop();
-          }
-        }
-      }, changePage, this);
-    }),
-    changeTab: _regenerator2.default.mark(function changeTab(action, _ref3) {
-      var put = _ref3.put;
-      return _regenerator2.default.wrap(function changeTab$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              _context3.next = 2;
-              return put({ type: 'changeTab', tab: action.tab });
-
-            case 2:
-            case 'end':
-              return _context3.stop();
-          }
-        }
-      }, changeTab, this);
-    }),
-    reset: _regenerator2.default.mark(function reset(action, _ref4) {
-      var put = _ref4.put;
-      return _regenerator2.default.wrap(function reset$(_context4) {
-        while (1) {
-          switch (_context4.prev = _context4.next) {
-            case 0:
-              _context4.next = 2;
-              return put({ type: 'reset' });
-
-            case 2:
-            case 'end':
-              return _context4.stop();
-          }
-        }
-      }, reset, this);
     })
   },
 

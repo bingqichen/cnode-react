@@ -24,7 +24,7 @@ exports.default = {
   },
 
   reducers: {
-    getDetail: function getDetail(state, action) {
+    getDetailSuccess: function getDetailSuccess(state, action) {
       return (0, _extends3.default)({}, state, { detail: action.detail });
     },
     reset: function reset(state) {
@@ -47,7 +47,7 @@ exports.default = {
             case 2:
               detail = _context.sent;
               _context.next = 5;
-              return put({ type: 'getDetail', detail: detail });
+              return put({ type: 'getDetailSuccess', detail: detail });
 
             case 5:
             case 'end':
@@ -55,22 +55,6 @@ exports.default = {
           }
         }
       }, getDetail, this);
-    }),
-    reset: _regenerator2.default.mark(function reset(action, _ref2) {
-      var put = _ref2.put;
-      return _regenerator2.default.wrap(function reset$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _context2.next = 2;
-              return put({ type: 'reset' });
-
-            case 2:
-            case 'end':
-              return _context2.stop();
-          }
-        }
-      }, reset, this);
     })
   },
 

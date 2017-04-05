@@ -14,7 +14,7 @@ export default {
     changePage(state, action) {
       return { ...state, page: action.page };
     },
-    getList(state, action) {
+    getListSuccess(state, action) {
       return { ...state, list: action.list };
     },
     changeTab(state, action) {
@@ -34,16 +34,7 @@ export default {
   effects: {
     * getList(action, { call, put }) {
       const list = yield call(getListData, { params: action.params });
-      yield put({ type: 'getList', list });
-    },
-    * changePage(action, { put }) {
-      yield put({ type: 'changePage', page: action.page });
-    },
-    * changeTab(action, { put }) {
-      yield put({ type: 'changeTab', tab: action.tab });
-    },
-    * reset(action, { put }) {
-      yield put({ type: 'reset' });
+      yield put({ type: 'getListSuccess', list });
     }
   },
 

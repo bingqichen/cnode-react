@@ -8,7 +8,7 @@ export default {
   },
 
   reducers: {
-    getDetail(state, action) {
+    getDetailSuccess(state, action) {
       return { ...state, detail: action.detail };
     },
     reset(state) {
@@ -19,10 +19,7 @@ export default {
   effects: {
     * getDetail(action, { call, put }) {
       const detail = yield call(getDetailData, { id: action.id });
-      yield put({ type: 'getDetail', detail });
-    },
-    * reset(action, { put }) {
-      yield put({ type: 'reset' });
+      yield put({ type: 'getDetailSuccess', detail });
     }
   },
 
