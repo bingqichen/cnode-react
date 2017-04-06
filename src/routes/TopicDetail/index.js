@@ -18,7 +18,7 @@ class TopicDetail extends Component {
     const { dispatch, topicDetail, location } = this.props;
     const { id } = location.query;
     if (JSON.stringify(topicDetail.detail) === '{}') {
-      dispatch({ type: 'topicDetail/getDetail', id });
+      dispatch({ type: 'topicDetail/getDetail', payload: id });
     }
   }
 

@@ -11,14 +11,14 @@ export default {
   },
 
   reducers: {
-    changePage(state, action) {
-      return { ...state, page: action.page };
+    changePage(state, { payload: page }) {
+      return { ...state, page };
     },
-    getListSuccess(state, action) {
-      return { ...state, list: action.list };
+    getListSuccess(state, { payload: list }) {
+      return { ...state, list };
     },
-    changeTab(state, action) {
-      return { ...state, tab: action.tab };
+    changeTab(state, { payload: tab }) {
+      return { ...state, tab };
     },
     reset(state) {
       return {
@@ -32,9 +32,9 @@ export default {
   },
 
   effects: {
-    * getList(action, { call, put }) {
-      const list = yield call(getListData, { params: action.params });
-      yield put({ type: 'getListSuccess', list });
+    * getList({ payload: params }, { call, put }) {
+      const list = yield call(getListData, { params });
+      yield put({ type: 'getListSuccess', payload: list });
     }
   },
 

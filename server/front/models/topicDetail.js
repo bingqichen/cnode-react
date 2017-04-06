@@ -24,8 +24,10 @@ exports.default = {
   },
 
   reducers: {
-    getDetailSuccess: function getDetailSuccess(state, action) {
-      return (0, _extends3.default)({}, state, { detail: action.detail });
+    getDetailSuccess: function getDetailSuccess(state, _ref) {
+      var detail = _ref.payload;
+
+      return (0, _extends3.default)({}, state, { detail: detail });
     },
     reset: function reset(state) {
       return (0, _extends3.default)({}, state, { detail: {} });
@@ -33,21 +35,22 @@ exports.default = {
   },
 
   effects: {
-    getDetail: _regenerator2.default.mark(function getDetail(action, _ref) {
-      var call = _ref.call,
-          put = _ref.put;
+    getDetail: _regenerator2.default.mark(function getDetail(_ref2, _ref3) {
+      var id = _ref2.payload;
+      var call = _ref3.call,
+          put = _ref3.put;
       var detail;
       return _regenerator2.default.wrap(function getDetail$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return call(_topicDetail.getDetailData, { id: action.id });
+              return call(_topicDetail.getDetailData, { id: id });
 
             case 2:
               detail = _context.sent;
               _context.next = 5;
-              return put({ type: 'getDetailSuccess', detail: detail });
+              return put({ type: 'getDetailSuccess', payload: detail });
 
             case 5:
             case 'end':

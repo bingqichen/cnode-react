@@ -80,7 +80,7 @@ var TopicsList = function (_Component) {
           tab: tab,
           limit: limit
         };
-        dispatch({ type: 'topicsList/getList', params: params });
+        dispatch({ type: 'topicsList/getList', payload: params });
       }
     }
   }, {
@@ -111,8 +111,8 @@ var TopicsList = function (_Component) {
         tab: tab,
         limit: limit
       };
-      dispatch({ type: 'topicsList/changeTab', tab: tab });
-      dispatch({ type: 'topicsList/getList', params: params });
+      dispatch({ type: 'topicsList/changeTab', payload: tab });
+      dispatch({ type: 'topicsList/getList', payload: params });
     }
   }, {
     key: 'handleChangePage',
@@ -130,8 +130,8 @@ var TopicsList = function (_Component) {
         tab: tab,
         limit: limit
       };
-      dispatch({ type: 'topicsList/changePage', page: newPage });
-      dispatch({ type: 'topicsList/getList', params: params });
+      dispatch({ type: 'topicsList/changePage', payload: newPage });
+      dispatch({ type: 'topicsList/getList', payload: params });
     }
   }, {
     key: 'render',

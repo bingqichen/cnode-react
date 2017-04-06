@@ -8,8 +8,8 @@ export default {
   },
 
   reducers: {
-    getDetailSuccess(state, action) {
-      return { ...state, detail: action.detail };
+    getDetailSuccess(state, { payload: detail }) {
+      return { ...state, detail };
     },
     reset(state) {
       return { ...state, detail: {} };
@@ -17,9 +17,9 @@ export default {
   },
 
   effects: {
-    * getDetail(action, { call, put }) {
-      const detail = yield call(getDetailData, { id: action.id });
-      yield put({ type: 'getDetailSuccess', detail });
+    * getDetail({ payload: id }, { call, put }) {
+      const detail = yield call(getDetailData, { id });
+      yield put({ type: 'getDetailSuccess', payload: detail });
     }
   },
 

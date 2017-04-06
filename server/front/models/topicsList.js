@@ -27,14 +27,20 @@ exports.default = {
   },
 
   reducers: {
-    changePage: function changePage(state, action) {
-      return (0, _extends3.default)({}, state, { page: action.page });
+    changePage: function changePage(state, _ref) {
+      var page = _ref.payload;
+
+      return (0, _extends3.default)({}, state, { page: page });
     },
-    getListSuccess: function getListSuccess(state, action) {
-      return (0, _extends3.default)({}, state, { list: action.list });
+    getListSuccess: function getListSuccess(state, _ref2) {
+      var list = _ref2.payload;
+
+      return (0, _extends3.default)({}, state, { list: list });
     },
-    changeTab: function changeTab(state, action) {
-      return (0, _extends3.default)({}, state, { tab: action.tab });
+    changeTab: function changeTab(state, _ref3) {
+      var tab = _ref3.payload;
+
+      return (0, _extends3.default)({}, state, { tab: tab });
     },
     reset: function reset(state) {
       return (0, _extends3.default)({}, state, {
@@ -47,21 +53,22 @@ exports.default = {
   },
 
   effects: {
-    getList: _regenerator2.default.mark(function getList(action, _ref) {
-      var call = _ref.call,
-          put = _ref.put;
+    getList: _regenerator2.default.mark(function getList(_ref4, _ref5) {
+      var params = _ref4.payload;
+      var call = _ref5.call,
+          put = _ref5.put;
       var list;
       return _regenerator2.default.wrap(function getList$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return call(_topicsList.getListData, { params: action.params });
+              return call(_topicsList.getListData, { params: params });
 
             case 2:
               list = _context.sent;
               _context.next = 5;
-              return put({ type: 'getListSuccess', list: list });
+              return put({ type: 'getListSuccess', payload: list });
 
             case 5:
             case 'end':

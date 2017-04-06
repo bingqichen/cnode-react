@@ -26,7 +26,7 @@ class TopicsList extends Component {
         tab,
         limit
       };
-      dispatch({ type: 'topicsList/getList', params });
+      dispatch({ type: 'topicsList/getList', payload: params });
     }
   }
 
@@ -51,8 +51,8 @@ class TopicsList extends Component {
       tab,
       limit
     };
-    dispatch({ type: 'topicsList/changeTab', tab });
-    dispatch({ type: 'topicsList/getList', params });
+    dispatch({ type: 'topicsList/changeTab', payload: tab });
+    dispatch({ type: 'topicsList/getList', payload: params });
   }
 
   handleChangePage(pager) {
@@ -64,8 +64,8 @@ class TopicsList extends Component {
       tab,
       limit
     };
-    dispatch({ type: 'topicsList/changePage', page: newPage });
-    dispatch({ type: 'topicsList/getList', params });
+    dispatch({ type: 'topicsList/changePage', payload: newPage });
+    dispatch({ type: 'topicsList/getList', payload: params });
   }
 
   render() {

@@ -72,7 +72,7 @@ var TopicDetail = function (_Component) {
       var id = location.query.id;
 
       if ((0, _stringify2.default)(topicDetail.detail) === '{}') {
-        dispatch({ type: 'topicDetail/getDetail', id: id });
+        dispatch({ type: 'topicDetail/getDetail', payload: id });
       }
     }
   }, {
