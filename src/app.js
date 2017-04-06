@@ -1,6 +1,7 @@
 import dva from 'dva';
 import { browserHistory } from 'dva/router';
 import { createLogger } from 'redux-logger';
+import createLoading from 'dva-loading';
 
 import topicsListModel from './models/topicsList';
 import topicDetailModel from './models/topicDetail';
@@ -17,6 +18,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const app = dva(opts);
 
+app.use(createLoading());
 app.model(topicsListModel);
 app.model(topicDetailModel);
 app.router(router);
