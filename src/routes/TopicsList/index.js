@@ -58,7 +58,7 @@ class TopicsList extends Component {
   handleChangePage(pager) {
     const { dispatch, topicsList } = this.props;
     const { page, tab, limit } = topicsList;
-    const newPage = pager ? Number(page) + 1 : Number(page) - 1
+    const newPage = pager ? Number(page) + 1 : Number(page) - 1;
     const params = {
       page: newPage,
       tab,
