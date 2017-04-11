@@ -26,8 +26,8 @@
 ├── src/              # 前端代码
 │   ├── components/   # 项目组件
 │   ├── config/
-│   ├── models/       # 路由组件（页面维度）
-│   ├── routes/       # 数据模型
+│   ├── models/       # 数据模型
+│   ├── routes/       # 路由组件（页面维度）
 │   ├── services/     # 数据接口
 │   ├── utils/        # 工具函数
 │   ├── app.js        # 入口文件
