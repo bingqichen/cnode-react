@@ -10,7 +10,7 @@
 
 
 - Yarn
-`yarn install` && `yarn server` && `yarn dev`
+`yarn` && `yarn server` && `yarn dev`
 
 
 ## 结构划分

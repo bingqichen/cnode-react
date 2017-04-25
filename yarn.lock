@@ -1019,6 +1019,10 @@ binaryextensions@~1.0.0:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/binaryextensions/download/binaryextensions-1.0.1.tgz#1e637488b35b58bda5f4774bf96a5212a8c90755"
 
+blessed@^0.1.81:
+  version "0.1.81"
+  resolved "http://registry.npm.taobao.org/blessed/download/blessed-0.1.81.tgz#f962d687ec2c369570ae71af843256e6d0ca1129"
+
 blob@0.0.4:
   version "0.0.4"
   resolved "http://registry.npm.taobao.org/blob/download/blob-0.0.4.tgz#bcf13052ca54463f30f9fc7e95b9a47630a94921"
@@ -1617,6 +1621,13 @@ create-hmac@^1.1.0, create-hmac@^1.1.2:
   dependencies:
     create-hash "^1.1.0"
     inherits "^2.0.1"
+
+cross-spawn@^4.0.0:
+  version "4.0.2"
+  resolved "http://registry.npm.taobao.org/cross-spawn/download/cross-spawn-4.0.2.tgz#7b9247621c23adfdd3856004a823cbe397424d41"
+  dependencies:
+    lru-cache "^4.0.1"
+    which "^1.2.9"
 
 cryptiles@2.x.x:
   version "2.0.5"
@@ -2510,6 +2521,10 @@ file-loader@^0.11.1:
 filename-regex@^2.0.0:
   version "2.0.0"
   resolved "http://registry.npm.taobao.org/filename-regex/download/filename-regex-2.0.0.tgz#996e3e80479b98b9897f15a8a58b3d084e926775"
+
+filesize@^3.3.0:
+  version "3.5.6"
+  resolved "http://registry.npm.taobao.org/filesize/download/filesize-3.5.6.tgz#5fd98f3eac94ec9516ef8ed5782fad84a01a0a1a"
 
 fill-range@^2.1.0:
   version "2.2.3"
@@ -4108,7 +4123,7 @@ lodash@^3.10.1:
   version "3.10.1"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.0.0, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
+lodash@^4.0.0, lodash@^4.14.0, lodash@^4.17.2, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.4"
   resolved "http://registry.npm.taobao.org/lodash/download/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -4129,6 +4144,13 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.2.0:
 lru-cache@2:
   version "2.7.3"
   resolved "http://registry.npm.taobao.org/lru-cache/download/lru-cache-2.7.3.tgz#6d4524e8b955f95d4f5b58851ce21dd72fb4e952"
+
+lru-cache@^4.0.1:
+  version "4.0.2"
+  resolved "http://registry.npm.taobao.org/lru-cache/download/lru-cache-4.0.2.tgz#1d17679c069cda5d040991a09dbc2c0db377e55e"
+  dependencies:
+    pseudomap "^1.0.1"
+    yallist "^2.0.0"
 
 macaddress@^0.2.8:
   version "0.2.8"
@@ -5065,6 +5087,10 @@ prr@~0.0.0:
   version "0.0.0"
   resolved "http://registry.npm.taobao.org/prr/download/prr-0.0.0.tgz#1a84b85908325501411853d0081ee3fa86e2926a"
 
+pseudomap@^1.0.1:
+  version "1.0.2"
+  resolved "http://registry.npm.taobao.org/pseudomap/download/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
+
 public-encrypt@^4.0.0:
   version "4.0.0"
   resolved "http://registry.npm.taobao.org/public-encrypt/download/public-encrypt-4.0.0.tgz#39f699f3a46560dd5ebacbca693caf7c65c18cc6"
@@ -5792,7 +5818,7 @@ socket.io-adapter@0.5.0:
     debug "2.3.3"
     socket.io-parser "2.3.1"
 
-socket.io-client@1.6.0:
+socket.io-client@1.6.0, socket.io-client@^1.4.8:
   version "1.6.0"
   resolved "http://registry.npm.taobao.org/socket.io-client/download/socket.io-client-1.6.0.tgz#5b668f4f771304dfeed179064708386fa6717853"
   dependencies:
@@ -5817,7 +5843,7 @@ socket.io-parser@2.3.1:
     isarray "0.0.1"
     json3 "3.3.2"
 
-socket.io@1.6.0:
+socket.io@1.6.0, socket.io@^1.4.8:
   version "1.6.0"
   resolved "http://registry.npm.taobao.org/socket.io/download/socket.io-1.6.0.tgz#3e40d932637e6bd923981b25caf7c53e83b6e2e1"
   dependencies:
@@ -6458,6 +6484,17 @@ webpack-browser-plugin@^1.0.20:
     browser-sync "^2.13.0"
     opn "^4.0.2"
 
+webpack-dashboard@^0.3.0:
+  version "0.3.0"
+  resolved "http://registry.npm.taobao.org/webpack-dashboard/download/webpack-dashboard-0.3.0.tgz#d0fe182a0976a8ff0ea01b0507f29a034cd60a1c"
+  dependencies:
+    blessed "^0.1.81"
+    commander "^2.9.0"
+    cross-spawn "^4.0.0"
+    filesize "^3.3.0"
+    socket.io "^1.4.8"
+    socket.io-client "^1.4.8"
+
 webpack-dev-middleware@^1.9.0:
   version "1.10.1"
   resolved "http://registry.npm.taobao.org/webpack-dev-middleware/download/webpack-dev-middleware-1.10.1.tgz#c6b4cf428139cf1aefbe06a0c00fdb4f8da2f893"
@@ -6488,6 +6525,12 @@ webpack-dev-server@^2.4.1:
     supports-color "^3.1.1"
     webpack-dev-middleware "^1.9.0"
     yargs "^6.0.0"
+
+webpack-merge@^4.1.0:
+  version "4.1.0"
+  resolved "http://registry.npm.taobao.org/webpack-merge/download/webpack-merge-4.1.0.tgz#6ad72223b3e0b837e531e4597c199f909361511e"
+  dependencies:
+    lodash "^4.17.4"
 
 webpack-sources@^0.1.0:
   version "0.1.5"
@@ -6571,7 +6614,7 @@ which-module@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/which-module/download/which-module-1.0.0.tgz#bba63ca861948994ff307736089e3b96026c2a4f"
 
-which@^1.2.12:
+which@^1.2.12, which@^1.2.9:
   version "1.2.14"
   resolved "http://registry.npm.taobao.org/which/download/which-1.2.14.tgz#9a87c4378f03e827cecaf1acdf56c736c01c14e5"
   dependencies:
@@ -6653,6 +6696,10 @@ xmlhttprequest-ssl@1.5.3:
 y18n@^3.2.0, y18n@^3.2.1:
   version "3.2.1"
   resolved "http://registry.npm.taobao.org/y18n/download/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
+
+yallist@^2.0.0:
+  version "2.1.2"
+  resolved "http://registry.npm.taobao.org/yallist/download/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
 
 yargs-parser@^4.1.0, yargs-parser@^4.2.0:
   version "4.2.1"

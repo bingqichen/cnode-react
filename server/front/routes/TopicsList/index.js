@@ -72,13 +72,15 @@ var TopicsList = function (_Component) {
       var list = topicsList.list,
           page = topicsList.page,
           tab = topicsList.tab,
-          limit = topicsList.limit;
+          limit = topicsList.limit,
+          mdrender = topicsList.mdrender;
 
       if (!list.length) {
         var params = {
           page: page,
           tab: tab,
-          limit: limit
+          limit: limit,
+          mdrender: mdrender
         };
         dispatch({ type: 'topicsList/getList', payload: params });
       }

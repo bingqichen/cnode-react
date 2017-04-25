@@ -1,5 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'dva';
+import { routerRedux } from 'dva/router';
 
 import { formatTime } from '@/utils';
 import { tabTypes } from '@/config';
@@ -28,7 +29,8 @@ class TopicDetail extends Component {
   }
 
   handleGoBack() {
-    this.context.router.goBack();
+    const { dispatch } = this.props;
+    dispatch(routerRedux.goBack());
   }
 
   render() {
@@ -79,10 +81,6 @@ class TopicDetail extends Component {
     );
   }
 }
-
-TopicDetail.contextTypes = {
-  router: PropTypes.object.isRequired
-};
 
 const mapStateToProps = state => ({
   topicDetail: state.topicDetail

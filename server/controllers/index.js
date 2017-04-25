@@ -42,7 +42,7 @@ module.exports = {
 
   topicdetail: async (ctx, next) => {
     const id = ctx.query.id;
-    const response = await axios.get(`/topic/${id}`)
+    const response = await axios.get(`/topic/${id}`);
 
     ctx.body = {
       view: 'index',

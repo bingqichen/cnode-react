@@ -8,7 +8,8 @@ export default {
     list: [],
     page: 1,
     tab: 'all',
-    limit: 40
+    limit: 40,
+    mdrender: true
   },
 
   reducers: {
@@ -27,14 +28,15 @@ export default {
         list: [],
         page: 1,
         tab: 'all',
-        limit: 40
+        limit: 40,
+        mdrender: true
       };
     }
   },
 
   effects: {
-    * getList({ payload: { page, tab, limit } }, { call, put }) {
-      const list = yield call(getListData, { page, tab, limit });
+    * getList({ payload: { page, tab, limit, mdrender } }, { call, put }) {
+      const list = yield call(getListData, { page, tab, limit, mdrender });
       yield put(routerRedux.push(`/topicslist?page=${page}&tab=${tab}`));
       yield put({ type: 'getListSuccess', payload: list });
     }

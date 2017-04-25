@@ -34,6 +34,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _dva = require('dva');
 
+var _router = require('dva/router');
+
 var _utils = require('../../utils');
 
 var _config = require('../../config');
@@ -85,7 +87,9 @@ var TopicDetail = function (_Component) {
   }, {
     key: 'handleGoBack',
     value: function handleGoBack() {
-      this.context.router.goBack();
+      var dispatch = this.props.dispatch;
+
+      dispatch(_router.routerRedux.goBack());
     }
   }, {
     key: 'render',
@@ -182,10 +186,6 @@ var TopicDetail = function (_Component) {
   }]);
   return TopicDetail;
 }(_react.Component);
-
-TopicDetail.contextTypes = {
-  router: _react.PropTypes.object.isRequired
-};
 
 var mapStateToProps = function mapStateToProps(state) {
   return {

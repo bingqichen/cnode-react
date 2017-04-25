@@ -25,7 +25,8 @@ exports.default = {
     list: [],
     page: 1,
     tab: 'all',
-    limit: 40
+    limit: 40,
+    mdrender: true
   },
 
   reducers: {
@@ -49,7 +50,8 @@ exports.default = {
         list: [],
         page: 1,
         tab: 'all',
-        limit: 40
+        limit: 40,
+        mdrender: true
       });
     }
   },
@@ -59,7 +61,8 @@ exports.default = {
       var _ref4$payload = _ref4.payload,
           page = _ref4$payload.page,
           tab = _ref4$payload.tab,
-          limit = _ref4$payload.limit;
+          limit = _ref4$payload.limit,
+          mdrender = _ref4$payload.mdrender;
       var call = _ref5.call,
           put = _ref5.put;
       var list;
@@ -68,7 +71,7 @@ exports.default = {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return call(_topicsList.getListData, { page: page, tab: tab, limit: limit });
+              return call(_topicsList.getListData, { page: page, tab: tab, limit: limit, mdrender: mdrender });
 
             case 2:
               list = _context.sent;

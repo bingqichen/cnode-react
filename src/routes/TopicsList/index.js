@@ -19,12 +19,13 @@ class TopicsList extends Component {
 
   componentDidMount() {
     const { dispatch, topicsList } = this.props;
-    const { list, page, tab, limit } = topicsList;
+    const { list, page, tab, limit, mdrender } = topicsList;
     if (!list.length) {
       const params = {
         page,
         tab,
-        limit
+        limit,
+        mdrender
       };
       dispatch({ type: 'topicsList/getList', payload: params });
     }
