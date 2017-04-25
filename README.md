@@ -35,5 +35,5 @@
 ├── test/
 ├── app.js            # koa入口文件
 ├── gulpfile.js       # 编译文件
-├── webpack.config.dev.js
+├── webpack.config.js
 ```
