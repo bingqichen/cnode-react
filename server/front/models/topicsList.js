@@ -12,6 +12,8 @@ var _extends2 = require('babel-runtime/helpers/extends');
 
 var _extends3 = _interopRequireDefault(_extends2);
 
+var _router = require('dva/router.js');
+
 var _topicsList = require('../services/topicsList');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -54,7 +56,10 @@ exports.default = {
 
   effects: {
     getList: _regenerator2.default.mark(function getList(_ref4, _ref5) {
-      var params = _ref4.payload;
+      var _ref4$payload = _ref4.payload,
+          page = _ref4$payload.page,
+          tab = _ref4$payload.tab,
+          limit = _ref4$payload.limit;
       var call = _ref5.call,
           put = _ref5.put;
       var list;
@@ -63,14 +68,18 @@ exports.default = {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return call(_topicsList.getListData, { params: params });
+              return call(_topicsList.getListData, { page: page, tab: tab, limit: limit });
 
             case 2:
               list = _context.sent;
               _context.next = 5;
-              return put({ type: 'getListSuccess', payload: list });
+              return put(_router.routerRedux.push('/topicslist?page=' + page + '&tab=' + tab));
 
             case 5:
+              _context.next = 7;
+              return put({ type: 'getListSuccess', payload: list });
+
+            case 7:
             case 'end':
               return _context.stop();
           }

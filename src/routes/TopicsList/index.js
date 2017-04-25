@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'dva/router';
 import { connect } from 'dva';
 
@@ -27,14 +27,6 @@ class TopicsList extends Component {
         limit
       };
       dispatch({ type: 'topicsList/getList', payload: params });
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const nextTopicsList = nextProps.topicsList;
-    const prevTopicsList = this.props.topicsList;
-    if (nextTopicsList.page !== prevTopicsList.page || nextTopicsList.tab !== prevTopicsList.tab) {
-      this.context.router.push(`/topicslist?page=${nextTopicsList.page}&tab=${nextTopicsList.tab}`);
     }
   }
 
@@ -121,10 +113,6 @@ class TopicsList extends Component {
     );
   }
 }
-
-TopicsList.contextTypes = {
-  router: PropTypes.object.isRequired
-};
 
 const mapStateToProps = state => ({
   topicsList: state.topicsList

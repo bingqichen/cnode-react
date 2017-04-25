@@ -83,15 +83,6 @@ var TopicsList = function (_Component) {
         dispatch({ type: 'topicsList/getList', payload: params });
       }
     }
-  }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      var nextTopicsList = nextProps.topicsList;
-      var prevTopicsList = this.props.topicsList;
-      if (nextTopicsList.page !== prevTopicsList.page || nextTopicsList.tab !== prevTopicsList.tab) {
-        this.context.router.push('/topicslist?page=' + nextTopicsList.page + '&tab=' + nextTopicsList.tab);
-      }
-    }
 
     // componentWillUnmount() {
     //   const { dispatch } = this.props;
@@ -247,10 +238,6 @@ var TopicsList = function (_Component) {
   }]);
   return TopicsList;
 }(_react.Component);
-
-TopicsList.contextTypes = {
-  router: _react.PropTypes.object.isRequired
-};
 
 var mapStateToProps = function mapStateToProps(state) {
   return {

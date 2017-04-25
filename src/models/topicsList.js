@@ -1,3 +1,4 @@
+import { routerRedux } from 'dva/router.js';
 import { getListData } from '@/services/topicsList';
 
 export default {
@@ -32,8 +33,9 @@ export default {
   },
 
   effects: {
-    * getList({ payload: params }, { call, put }) {
-      const list = yield call(getListData, { params });
+    * getList({ payload: { page, tab, limit } }, { call, put }) {
+      const list = yield call(getListData, { page, tab, limit });
+      yield put(routerRedux.push(`/topicslist?page=${page}&tab=${tab}`));
       yield put({ type: 'getListSuccess', payload: list });
     }
   },
