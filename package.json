@@ -4,7 +4,7 @@
   "description": "cnode社区react版",
   "main": "src/app.js",
   "scripts": {
-    "server": "export NODE_SERVER=true && pm2 start app.js -n cnode-react --watch",
+    "server": "export NODE_SERVER=true && pm2 start app.js -n cnode-react --watch server",
     "dev": "NODE_ENV='development' webpack-dev-server --config webpack.config.dev.js",
     "build": "NODE_ENV='production' webpack --progress --display-error-details --colors --profile --config webpack.config.prod.js",
     "test": "NODE_ENV='production' mocha --compilers js:babel-core/register --require ./test/setup.js"
@@ -65,6 +65,7 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.1",
     "mocha": "^3.2.0",
+    "mockjs": "^1.0.1-beta3",
     "postcss-loader": "^1.3.3",
     "react-addons-test-utils": "^15.4.2",
     "react-hot-loader": "3.0.0-beta.6",

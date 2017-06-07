@@ -1,10 +1,9 @@
 const React = require('react');
-const renderToString = require('react-dom/server').renderToString;
-const dva = require('dva').default;
-const RouterContext = require('dva/router').RouterContext;
-const createMemoryHistory = require('dva/router').createMemoryHistory;
-const topicsListModel = require('../front/models/topicsList').default;
-const topicDetailModel = require('../front/models/topicDetail').default;
+const { renderToString } = require('react-dom/server');
+const { RouterContext } = require('dva/router');
+const { createMemoryHistory } = require('dva/router');
+
+const createApp = require('../front/createApp').default;
 
 module.exports = (app) => {
   app.use(async (ctx, next) => {
@@ -17,13 +16,10 @@ module.exports = (app) => {
 
     if (body.view && body.renderProps) {
 
-      const app = dva({
+      const app = createApp({
         history: createMemoryHistory(),
         initialState: body.store || {}
       });
-
-      app.model(topicsListModel);
-      app.model(topicDetailModel);
 
       app.router(({ renderProps }) => (
         createElement(RouterContext, renderProps)

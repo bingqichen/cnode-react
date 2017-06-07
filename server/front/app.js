@@ -1,24 +1,12 @@
 'use strict';
 
-var _dva = require('dva');
-
-var _dva2 = _interopRequireDefault(_dva);
-
 var _router = require('dva/router');
 
 var _reduxLogger = require('redux-logger');
 
-var _dvaLoading = require('dva-loading');
+var _createApp = require('./createApp.js');
 
-var _dvaLoading2 = _interopRequireDefault(_dvaLoading);
-
-var _topicsList = require('./models/topicsList');
-
-var _topicsList2 = _interopRequireDefault(_topicsList);
-
-var _topicDetail = require('./models/topicDetail');
-
-var _topicDetail2 = _interopRequireDefault(_topicDetail);
+var _createApp2 = _interopRequireDefault(_createApp);
 
 var _router2 = require('./router');
 
@@ -35,10 +23,6 @@ if (process.env.NODE_ENV !== 'production') {
   opts.onAction = (0, _reduxLogger.createLogger)();
 }
 
-var app = (0, _dva2.default)(opts);
-
-app.use((0, _dvaLoading2.default)());
-app.model(_topicsList2.default);
-app.model(_topicDetail2.default);
+var app = (0, _createApp2.default)(opts);
 app.router(_router3.default);
 app.start('#root');
