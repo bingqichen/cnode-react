@@ -97,7 +97,8 @@ module.exports = {
       filename: '[name].dev.css',
       disable: false,
       allChunks: true
-    })
+    }),
+    new webpack.optimize.ModuleConcatenationPlugin()
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.less']
