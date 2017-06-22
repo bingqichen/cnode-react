@@ -75,7 +75,12 @@ module.exports = {
                 ]
               }
             },
-            'less-loader'
+            {
+              loader: 'less-loader',
+              // options: {
+              //   modifyVars: theme
+              // }
+            }
           ]
         })
       },
@@ -93,10 +98,9 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
-    new ExtractTextPlugin({
-      filename: '[name].dev.css',
-      disable: false,
-      allChunks: true
+    new webpack.DllReferencePlugin({
+      context: __dirname,
+      manifest: require(path.join(__dirname, '../dist/vendor/manifest.json'))
     }),
     new webpack.optimize.ModuleConcatenationPlugin()
   ],

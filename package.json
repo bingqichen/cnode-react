@@ -6,7 +6,8 @@
   "scripts": {
     "server": "export NODE_SERVER=true && pm2 start app.js -n cnode-react --watch server",
     "dev": "NODE_ENV='development' webpack-dev-server --config webpack.config.dev.js",
-    "build": "NODE_ENV='production' webpack --progress --display-error-details --colors --profile --config webpack.config.prod.js",
+    "build": "NODE_ENV='production' webpack --progress --display-error-details --display-optimization-bailout --color --profile --config ./webpack/webpack.config.prod.js",
+    "dll": "webpack --progress --display-error-details --display-optimization-bailout --color --profile --config ./webpack/webpack.config.dll.js",
     "test": "NODE_ENV='production' mocha --compilers js:babel-core/register --require ./test/setup.js"
   },
   "repository": {

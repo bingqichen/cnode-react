@@ -1,9 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 const Dashboard = require('webpack-dashboard');
 const DashboardPlugin = require('webpack-dashboard/plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const WebpackBrowserPlugin = require('webpack-browser-plugin');
-const merge = require('webpack-merge');
 
 const dashboard = new Dashboard();
 
@@ -24,7 +25,7 @@ module.exports = merge(webpackBaseConfig, {
       // bundle the client for hot reloading
       // only- means to only hot reload for successful updates
 
-      path.join(__dirname, 'src/app')
+      path.join(__dirname, '../src/app')
       // the entry point of our app
     ]
   },
@@ -59,7 +60,13 @@ module.exports = merge(webpackBaseConfig, {
     new webpack.HotModuleReplacementPlugin(),
     new WebpackBrowserPlugin({
       port: 8080,
-      url: 'http://localhost'
+      url: 'http://localhost',
+      browser: 'Chrome'
     }),
+    new ExtractTextPlugin({
+      filename: '[name].css',
+      disable: false,
+      allChunks: true
+    })
   ]
 });
