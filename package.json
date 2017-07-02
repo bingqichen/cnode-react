@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "scripts": {
     "server": "export NODE_SERVER=true && pm2 start app.js -n cnode-react --watch server",
-    "dev": "NODE_ENV='development' webpack-dev-server --config webpack.config.dev.js",
+    "dev": "NODE_ENV='development' webpack-dev-server --config ./webpack/webpack.config.dev.js",
     "build": "NODE_ENV='production' webpack --progress --display-error-details --display-optimization-bailout --color --profile --config ./webpack/webpack.config.prod.js",
     "dll": "webpack --progress --display-error-details --display-optimization-bailout --color --profile --config ./webpack/webpack.config.dll.js",
     "test": "NODE_ENV='production' mocha --compilers js:babel-core/register --require ./test/setup.js"
@@ -55,7 +55,7 @@
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.6.0",
-    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-jsx-a11y": "^5.1.0",
     "eslint-plugin-react": "^7.1.0",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",

@@ -38,7 +38,7 @@ module.exports = merge(webpackBaseConfig, {
     hot: true,
     // enable HMR on the server
 
-    contentBase: path.join(__dirname, '.'),
+    contentBase: path.join(__dirname, '../'),
     // match the output path
 
     publicPath: '/',
