@@ -50,7 +50,12 @@ module.exports = merge(webpackBaseConfig, {
     proxy: {
       '/': {
         target: 'http://localhost:3002/',
-        secure: false
+        secure: false,
+        bypass: (req) => {
+          if (req.url.indexOf('/vendor.min.js') !== -1) {
+            return '/dist/vendor/vendor.min.js';
+          }
+        }
       }
     },
     quiet: true
