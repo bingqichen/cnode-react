@@ -32,8 +32,8 @@
 │   ├── utils/        # 工具函数
 │   ├── app.js        # 入口文件
 │   └── router.js     # 路由配置
+├── webpack/          # webpack配置
 ├── test/
 ├── app.js            # koa入口文件
 ├── gulpfile.js       # 编译文件
-├── webpack.config.js
 ```
