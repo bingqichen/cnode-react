@@ -51,7 +51,7 @@ module.exports = merge(webpackBaseConfig, {
       '/': {
         target: 'http://localhost:3002/',
         secure: false,
-        bypass: (req) => {
+        bypass: (req) => { // 为了开发时能正确取到 vendor.min.js 文件
           if (req.url.indexOf('/vendor.min.js') !== -1) {
             return '/dist/vendor/vendor.min.js';
           }
